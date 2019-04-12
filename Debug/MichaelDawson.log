@@ -1,13 +1,2 @@
 ﻿  MichaelDawson.cpp
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\xutility(3583): warning C4805: '==': unsafe mix of type 'const char' and type 'const _Ty' in operation
-          with
-          [
-              _Ty=bool
-          ]
-  c:\users\minta\source\repos\michaeldawson\michaeldawson.cpp(137): note: see reference to function template instantiation 'int std::count<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,bool>(const _InIt,const _InIt,const bool &)' being compiled
-          with
-          [
-              _Ty=char,
-              _InIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<char>>>
-          ]
   MichaelDawson.vcxproj -> C:\Users\minta\Source\Repos\MichaelDawson\Debug\MichaelDawson.exe
