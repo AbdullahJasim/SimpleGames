@@ -1,3 +1,4 @@
+//simple tic tac toe game with an emphasis on references concept
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,6 +14,7 @@ const char TIE = 'T';
 const char NO_ONE = 'N';
 
 //function declarations
+void runGame();
 void instructions();
 char askYesNo(string question);
 int askNumber(string question, int high, int low = 0);
@@ -20,12 +22,18 @@ char humanPiece();
 char opponent(char piece);
 void displayBoard(const vector<char>& board);
 char winner(const vector<char>& board);
-bool isLegal(const vector<char>& board, int move);
+bool isLegal(int move, const vector<char>& board);
 int humanMove(const vector<char>& board, char human);
 int computerMove(vector<char> board, char computer);
 void announceWinner(char winner, char computer, char human);
 
-int main() {
+//int main() {
+//	runGame();
+//	return 0;
+//}
+
+//initialize the board, assign X to the first turn and start game loop
+void runGame() {
 	int move;
 	const int NUM_SQUARES = 9;
 	vector<char> board(NUM_SQUARES, EMPTY);
@@ -51,9 +59,6 @@ int main() {
 	}
 
 	announceWinner(winner(board), computer, human);
-
-	cin.get();
-	return 0;
 }
 
 void instructions() {
@@ -111,6 +116,7 @@ void displayBoard(const vector<char>& board) {
 	cout << "\n\n";
 }
 
+//check manually for all winning conditions
 char winner(const vector<char>& board) {
 	const int WINNING_ROWS[8][3] = {
 									{0, 1, 2},
@@ -138,6 +144,7 @@ char winner(const vector<char>& board) {
 	return NO_ONE;
 }
 
+//check if square is empty
 inline bool isLegal(int move, const vector<char>& board) {
 	return (board[move] == EMPTY);
 }

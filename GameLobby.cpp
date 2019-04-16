@@ -5,32 +5,32 @@
 
 using namespace std;
 
-class Player {
+class GameLobbyPlayer {
 public:
-	Player(const string& name = "");
+	GameLobbyPlayer(const string& name = "");
 	string GetName() const;
-	Player* GetNext() const;
-	void SetNext(Player* next);
+	GameLobbyPlayer* GetNext() const;
+	void SetNext(GameLobbyPlayer* next);
 
 private:
 	string m_Name;
-	Player* m_pNext;
+	GameLobbyPlayer* m_pNext;
 };
 
-Player::Player(const string& name) :
+GameLobbyPlayer::GameLobbyPlayer(const string& name) :
 	m_Name(name),
 	m_pNext(0)
 {}
 
-string Player::GetName() const {
+string GameLobbyPlayer::GetName() const {
 	return m_Name;
 }
 
-Player* Player::GetNext() const {
+GameLobbyPlayer* GameLobbyPlayer::GetNext() const {
 	return m_pNext;
 }
 
-void Player::SetNext(Player* next) {
+void GameLobbyPlayer::SetNext(GameLobbyPlayer* next) {
 	m_pNext = next;
 }
 
@@ -47,7 +47,7 @@ public:
 	void Clear();
 
 private:
-	Player* m_pHead;
+	GameLobbyPlayer* m_pHead;
 };
 
 Lobby::Lobby() {
@@ -63,12 +63,12 @@ void Lobby::AddPlayer() {
 	string name;
 	cin >> name;
 
-	Player* p = new Player(name);
+	GameLobbyPlayer* p = new GameLobbyPlayer(name);
 
 	if (m_pHead == nullptr) {
 		m_pHead = p;
 	} else {
-		Player* iter = m_pHead;
+		GameLobbyPlayer* iter = m_pHead;
 
 		while (iter->GetNext() != nullptr) iter = iter->GetNext();
 
@@ -82,7 +82,7 @@ void Lobby::RemovePlayer() {
 		return;
 	}
 
-	Player* temp = m_pHead;
+	GameLobbyPlayer* temp = m_pHead;
 	m_pHead = m_pHead->GetNext();
 
 	delete temp;
@@ -93,7 +93,7 @@ void Lobby::Clear() {
 }
 
 ostream& operator<<(ostream& os, const Lobby& aLobby) {
-	Player* iter = aLobby.m_pHead;
+	GameLobbyPlayer* iter = aLobby.m_pHead;
 
 	if (iter == nullptr) {
 		os << "No players in lobby.\n";
@@ -144,8 +144,8 @@ void RunGameLobby() {
 	} while (choice != 0);
 }
 
-int main() {
-	RunGameLobby();
-
-	return 0;
-}
+//int main() {
+//	RunGameLobby();
+//
+//	return 0;
+//}
